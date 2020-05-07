@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejecutador infinito</title>
+</head>
+<body>
+  <h2>
+    Ejecutador infinito
+  </h2>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    
+    function consultar(){
+      const url = "http://laravel.eventos.ludik.pe/api/help";
+      $.ajax({url: url, success: function(result){
+        console.log("consultad", result);
+        if (result == 0) {
+          consultar();
+        } else if(result == 1) {
+          alert("termino");
+        }
+      }});
+    }
+    consultar();
+  </script>
+</body>
+</html>
